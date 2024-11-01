@@ -1,34 +1,36 @@
 import React from "react";
-import profilepic from '../../assets/images/profile-pic.png'
+import profilepic from "../../assets/images/profile-pic.png";
 
 const InfoRow = ({ label, value }) => (
   <div className="flex space-x-2">
-    <dt className="text-black text-md font-bold mt-5">{label}: {" "}</dt>
+    <dt className="text-black text-md font-bold mt-5">{label}: </dt>
     <dd className="text-[#00111A] font-medium mt-5">
       {value || "Not provided"}
     </dd>
   </div>
 );
 
-const VirtualCard = ({ 
+const VirtualCard = ({
   profileImage,
   fullName,
   email,
-  gender,
-  contactNumber,
-  address,
-  className = ""
+  university,
+  course,
+  year,
+  id,
+  className = "",
 }) => {
   const userInfo = [
     { label: "Full Name", value: fullName },
-    { label: "Email", value: email },
-    { label: "Gender", value: gender },
-    { label: "Contact Number", value: contactNumber },
-    { label: "Address", value: address }
+    { label: "University", value: university },
+    { label: "Course", value: course },
+    { label: "Year", value: year },
+    { label: "ID No", value: id },
   ];
 
   return (
-    <div className={`
+    <div
+      className={`
       rounded-lg 
       bg-gradient-to-b from-[#4EA3C908] to-[#3E586412] 
       shadow-lg 
@@ -36,8 +38,10 @@ const VirtualCard = ({
       max-w-md 
       w-full
       ${className}
-    `}>
-      <div className="
+    `}
+    >
+      <div
+        className="
         relative
         h-[200px] 
         w-full 
@@ -46,7 +50,8 @@ const VirtualCard = ({
         rounded-t-lg 
         bg-white
         overflow-hidden
-      ">
+      "
+      >
         {profilepic ? (
           <img
             src={profilepic}
@@ -61,7 +66,8 @@ const VirtualCard = ({
             "
           />
         ) : (
-          <div className="
+          <div
+            className="
             w-full 
             h-full 
             flex 
@@ -69,7 +75,8 @@ const VirtualCard = ({
             justify-center 
             bg-gray-100
             text-gray-400
-          ">
+          "
+          >
             No Image
           </div>
         )}
@@ -77,11 +84,7 @@ const VirtualCard = ({
 
       <dl className="p-4 space-y-2">
         {userInfo.map(({ label, value }) => (
-          <InfoRow 
-            key={label} 
-            label={label} 
-            value={value} 
-          />
+          <InfoRow key={label} label={label} value={value} />
         ))}
       </dl>
     </div>
@@ -92,9 +95,10 @@ VirtualCard.defaultProps = {
   profileImage: "",
   fullName: "",
   email: "",
-  gender: "",
-  contactNumber: "",
-  address: "",
+  university: "",
+  course: "",
+  year: "",
+  id: "",
 };
 
 export default VirtualCard;
