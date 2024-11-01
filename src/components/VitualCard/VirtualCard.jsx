@@ -23,6 +23,7 @@ const VirtualCard = ({
   const userInfo = [
     { label: "Full Name", value: fullName },
     { label: "University", value: university },
+    { label: "Email", value: email },
     { label: "Course", value: course },
     { label: "Year", value: year },
     { label: "ID No", value: id },
@@ -30,18 +31,22 @@ const VirtualCard = ({
 
   return (
     <div
-      className={`
+      className="max-w-md 
+      w-full"
+    >
+      <p className="text-center mb-2 font-bold text-[24px]">Virtual ID</p>
+      <div
+        className={`
       rounded-lg 
       bg-gradient-to-b from-[#4EA3C908] to-[#3E586412] 
       shadow-lg 
       overflow-hidden
-      max-w-md 
-      w-full
+      
       ${className}
     `}
-    >
-      <div
-        className="
+      >
+        <div
+          className="
         relative
         h-[200px] 
         w-full 
@@ -51,12 +56,12 @@ const VirtualCard = ({
         bg-white
         overflow-hidden
       "
-      >
-        {profilepic ? (
-          <img
-            src={profilepic}
-            alt={`${fullName}'s profile`}
-            className="
+        >
+          {profilepic ? (
+            <img
+              src={profilepic}
+              alt={`${fullName}'s profile`}
+              className="
               w-full 
               h-full 
               object-contain 
@@ -64,10 +69,10 @@ const VirtualCard = ({
               duration-300 
               hover:scale-105
             "
-          />
-        ) : (
-          <div
-            className="
+            />
+          ) : (
+            <div
+              className="
             w-full 
             h-full 
             flex 
@@ -76,17 +81,18 @@ const VirtualCard = ({
             bg-gray-100
             text-gray-400
           "
-          >
-            No Image
-          </div>
-        )}
-      </div>
+            >
+              No Image
+            </div>
+          )}
+        </div>
 
-      <dl className="p-4 space-y-2">
-        {userInfo.map(({ label, value }) => (
-          <InfoRow key={label} label={label} value={value} />
-        ))}
-      </dl>
+        <dl className="p-4 space-y-2">
+          {userInfo.map(({ label, value }) => (
+            <InfoRow key={label} label={label} value={value} />
+          ))}
+        </dl>
+      </div>
     </div>
   );
 };

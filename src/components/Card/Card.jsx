@@ -27,7 +27,6 @@ const CARDS = [
 export default function CardStack() {
   const [activeCard, setActiveCard] = useState(CARDS[0].id);
 
-  // Memoize shadow states to prevent unnecessary recalculations
   const shadowStates = useMemo(() => {
     return CARDS.reduce((acc, card) => ({
       ...acc,
