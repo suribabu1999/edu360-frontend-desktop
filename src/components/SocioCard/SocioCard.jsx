@@ -1,9 +1,12 @@
 import React from "react";
 
-const SocioCard = () => {
+const SocioCard = ({ shadow }) => {
+
   return (
-    <div className="w-full h-full rounded-lg shadow-lg flex items-center justify-center">
-      <h2 className="text-xl">Socio Card</h2>
+    <div
+      className={`w-full h-full rounded-tl-[50px] rounded-bl-[50px] flex items-center justify-center ${shadow}`}
+    >
+      <h2 className="text-white text-xl">Socio Card</h2>
     </div>
   );
 };
