@@ -1,25 +1,100 @@
 import React from "react";
 import profilepic from '../../assets/images/profile-pic.png'
 
-const VirtualCard = () => {
+const InfoRow = ({ label, value }) => (
+  <div className="flex space-x-2">
+    <dt className="text-black text-md font-bold mt-5">{label}: {" "}</dt>
+    <dd className="text-[#00111A] font-medium mt-5">
+      {value || "Not provided"}
+    </dd>
+  </div>
+);
+
+const VirtualCard = ({ 
+  profileImage,
+  fullName,
+  email,
+  gender,
+  contactNumber,
+  address,
+  className = ""
+}) => {
+  const userInfo = [
+    { label: "Full Name", value: fullName },
+    { label: "Email", value: email },
+    { label: "Gender", value: gender },
+    { label: "Contact Number", value: contactNumber },
+    { label: "Address", value: address }
+  ];
+
   return (
-    <div className="id-card rounded-lg bg-gradient-to-b from-[#4EA3C908] to-[#3E586412] shadow-lg">
-      <div className="camera-icon h-[120px] w-[300px] border border-[#50A9D499] flex justify-center items-center rounded-lg bg-white">
-        <img
-          src={profilepic}
-          alt="Uploaded"
-          className="w-full h-full object-contain rounded-lg"
-        />
+    <div className={`
+      rounded-lg 
+      bg-gradient-to-b from-[#4EA3C908] to-[#3E586412] 
+      shadow-lg 
+      overflow-hidden
+      max-w-md 
+      w-full
+      ${className}
+    `}>
+      <div className="
+        relative
+        h-[200px] 
+        w-full 
+        border 
+        border-[#50A9D499] 
+        rounded-t-lg 
+        bg-white
+        overflow-hidden
+      ">
+        {profilepic ? (
+          <img
+            src={profilepic}
+            alt={`${fullName}'s profile`}
+            className="
+              w-full 
+              h-full 
+              object-contain 
+              transition-transform 
+              duration-300 
+              hover:scale-105
+            "
+          />
+        ) : (
+          <div className="
+            w-full 
+            h-full 
+            flex 
+            items-center 
+            justify-center 
+            bg-gray-100
+            text-gray-400
+          ">
+            No Image
+          </div>
+        )}
       </div>
-      <div className="p-4">
-        <p className="text-[#00111A] font-medium mt-5">Full Name: {}</p>
-        <p className="text-[#00111A] font-medium mt-5">Email: {}</p>
-        <p className="text-[#00111A] font-medium mt-5">Gender: {}</p>
-        <p className="text-[#00111A] font-medium mt-5">Contact Number: {}</p>
-        <p className="text-[#00111A] font-medium mt-5">Address: {}</p>
-      </div>
+
+      <dl className="p-4 space-y-2">
+        {userInfo.map(({ label, value }) => (
+          <InfoRow 
+            key={label} 
+            label={label} 
+            value={value} 
+          />
+        ))}
+      </dl>
     </div>
   );
+};
+
+VirtualCard.defaultProps = {
+  profileImage: "",
+  fullName: "",
+  email: "",
+  gender: "",
+  contactNumber: "",
+  address: "",
 };
 
 export default VirtualCard;
