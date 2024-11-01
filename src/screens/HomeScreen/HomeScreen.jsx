@@ -9,8 +9,10 @@ const HomeScreen = () => {
     <div>
       <NavBar />
       <div className="p-5 flex space-x-[100px]">
-        <LeftPanel/>
-        <CardStack/>
+        <LeftPanel />
+        <div>
+          <CardStack />
+        </div>
         {/* left section */}
       </div>
     </div>

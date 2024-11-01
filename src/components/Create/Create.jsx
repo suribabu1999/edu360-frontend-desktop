@@ -2,7 +2,7 @@ import React from "react";
 
 const Create = () => {
   return (
-    <div className="shadow-create bg-create w-full p-5 max-w-md rounded-md space-y-2">
+    <div className="shadow-create bg-create w-full p-2 max-w-md rounded-md space-y-2">
       <p className="font-bold text-xl">Create</p>
       <textarea id="message" rows="3" class="block resize-none p-2.5 w-full text-sm text-gray-900 rounded-lg border-[0.5px] border-[#00111A] border-opacity-40 focus:ring-blue-500 focus:border-blue-500" placeholder="Write your post here..."></textarea>
       <div className="icons flex justify-between text-[#00111A8C]">
