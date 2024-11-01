@@ -13,11 +13,11 @@ export default function CardStack() {
   const getCardClass = (cardId) => {
     let className = 'absolute w-full h-full bg-white rounded-lg shadow-lg transition-all duration-500 ease-in-out cursor-pointer origin-right'
     if (activeCard === 'card-3' && cardId === 'card-1') {
-      className += ' w-[70px] rounded-r-none translate-x-[1000px]'
+      className += ' w-[50px] rounded-r-none translate-x-[1000px]'
     } else if (activeCard === 'card-3' && cardId === 'card-2') {
-      className += ' w-[70px] rounded-r-none translate-x-[940px] overflow-hidden'
+      className += ' w-[50px] rounded-r-none translate-x-[950px] overflow-hidden'
     } else if (activeCard === 'card-2' && cardId === 'card-1') {
-      className += ' w-[70px] rounded-r-none translate-x-[1020px]'
+      className += ' w-[50px] rounded-r-none translate-x-[1020px]'
     }
     return className
   }
