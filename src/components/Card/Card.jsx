@@ -38,12 +38,12 @@ export default function CardStack() {
     const baseClass = "absolute w-full h-full bg-white transition-all duration-500 ease-in-out cursor-pointer origin-right";
     
     if (activeCard === "card-3") {
-      if (cardId === "card-1") return `${baseClass} w-[70px] translate-x-[1000px]`;
-      if (cardId === "card-2") return `${baseClass} w-[70px] translate-x-[940px] overflow-hidden`;
+      if (cardId === "card-1") return `${baseClass} !w-[70px] translate-x-[800px]`;
+      if (cardId === "card-2") return `${baseClass} !w-[70px] translate-x-[750px] overflow-hidden`;
     }
     
     if (activeCard === "card-2" && cardId === "card-1") {
-      return `${baseClass} w-[70px] translate-x-[1020px]`;
+      return `${baseClass} !w-[70px] translate-x-[800px]`;
     }
 
     const card = CARDS.find(c => c.id === cardId);
@@ -52,7 +52,7 @@ export default function CardStack() {
 
   return (
     <div className="flex items-center justify-center">
-      <div className="relative w-[1100px] h-[700px] perspective-[1000px]">
+      <div className="relative w-[900px] h-[700px] perspective-[1000px]">
         {CARDS.map(({ id, component: Card, zIndex }) => (
           <div
             key={id}

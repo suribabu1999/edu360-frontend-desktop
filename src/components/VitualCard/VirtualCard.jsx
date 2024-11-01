@@ -31,15 +31,13 @@ const VirtualCard = ({
 
   return (
     <div
-      className="max-w-md 
-      w-full"
+      className="w-[20%]"
     >
       <p className="text-center mb-2 font-bold text-[24px]">Virtual ID</p>
       <div
         className={`
       rounded-lg 
-      bg-gradient-to-b from-[#4EA3C908] to-[#3E586412] 
-      shadow-lg 
+      shadow-create
       overflow-hidden
       
       ${className}
@@ -49,7 +47,6 @@ const VirtualCard = ({
           className="
         relative
         h-[200px] 
-        w-full 
         border 
         border-[#50A9D499] 
         rounded-t-lg 
