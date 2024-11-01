@@ -1,70 +1,69 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import MyFutureCard from "../MyFutureCard/MyFutureCard";
 import EduProCard from "../EduProCard/EduProCard";
 import SocioCard from "../SocioCard/SocioCard";
 
-export default function CardStack() {
-  const [activeCard, setActiveCard] = useState("card-1");
-  const [eduproShadow, setEduproShadow] = useState("shadow-card");
-  const [socioshadow, setSocioshadow] = useState("shadow-card");
-  const [myFutureShadow, setMyFutureShadow] = useState("shadow-card");
+const CARDS = [
+  {
+    id: "card-1",
+    component: EduProCard,
+    baseTranslate: "translate-x-0",
+    zIndex: "z-30"
+  },
+  {
+    id: "card-2",
+    component: SocioCard,
+    baseTranslate: "-translate-x-10",
+    zIndex: "z-20"
+  },
+  {
+    id: "card-3",
+    component: MyFutureCard,
+    baseTranslate: "-translate-x-[70px]",
+    zIndex: "z-10"
+  }
+];
 
-  const handleCardClick = (cardId) => {
-    setActiveCard(cardId);
-    if (cardId === "card-1") {
-      setEduproShadow("shadow-card-active");
-      setSocioshadow("shadow-card");
-      setMyFutureShadow("shadow-card");
-    } else if (cardId === "card-2") {
-      setEduproShadow("shadow-card");
-      setSocioshadow("shadow-card-active");
-      setMyFutureShadow("shadow-card");
-    } else {
-      setEduproShadow("shadow-card");
-      setSocioshadow("shadow-card");
-      setMyFutureShadow("shadow-card-active");
-    }
-  };
+export default function CardStack() {
+  const [activeCard, setActiveCard] = useState(CARDS[0].id);
+
+  // Memoize shadow states to prevent unnecessary recalculations
+  const shadowStates = useMemo(() => {
+    return CARDS.reduce((acc, card) => ({
+      ...acc,
+      [card.id]: activeCard === card.id ? "shadow-card-active" : "shadow-card"
+    }), {});
+  }, [activeCard]);
 
   const getCardClass = (cardId) => {
-    let className =
-      "absolute w-full h-full bg-white transition-all duration-500 ease-in-out cursor-pointer origin-right";
-    if (activeCard === "card-3" && cardId === "card-1") {
-      className += " w-[70px] translate-x-[1000px]";
-    } else if (activeCard === "card-3" && cardId === "card-2") {
-      className += " w-[70px] translate-x-[940px] overflow-hidden";
-    } else if (activeCard === "card-2" && cardId === "card-1") {
-      className += " w-[70px] translate-x-[1020px]";
+    const baseClass = "absolute w-full h-full bg-white transition-all duration-500 ease-in-out cursor-pointer origin-right";
+    
+    if (activeCard === "card-3") {
+      if (cardId === "card-1") return `${baseClass} w-[70px] translate-x-[1000px]`;
+      if (cardId === "card-2") return `${baseClass} w-[70px] translate-x-[940px] overflow-hidden`;
     }
-    return className;
+    
+    if (activeCard === "card-2" && cardId === "card-1") {
+      return `${baseClass} w-[70px] translate-x-[1020px]`;
+    }
+
+    const card = CARDS.find(c => c.id === cardId);
+    return `${baseClass} ${card.baseTranslate}`;
   };
 
   return (
     <div className="flex items-center justify-center">
       <div className="relative w-[1100px] h-[700px] perspective-[1000px]">
-        <div
-          id="card-1"
-          className={`${getCardClass("card-1")} z-30 translate-x-0`}
-          onClick={() => handleCardClick("card-1")}
-        >
-          <EduProCard shadow={eduproShadow} />
-        </div>
-        <div
-          id="card-2"
-          className={`${getCardClass("card-2")} z-20 -translate-x-10`}
-          onClick={() => handleCardClick("card-2")}
-        >
-          <SocioCard shadow={socioshadow} />
-        </div>
-        <div
-          id="card-3"
-          className={`${getCardClass(
-            "card-3"
-          )} bg-green-500 z-10 -translate-x-[70px]`}
-          onClick={() => handleCardClick("card-3")}
-        >
-          <MyFutureCard shadow={myFutureShadow} />
-        </div>
+        {CARDS.map(({ id, component: Card, zIndex }) => (
+          <div
+            key={id}
+            id={id}
+            className={`${getCardClass(id)} ${zIndex}`}
+            onClick={() => setActiveCard(id)}
+          >
+            <Card shadow={shadowStates[id]} />
+          </div>
+        ))}
       </div>
     </div>
   );
