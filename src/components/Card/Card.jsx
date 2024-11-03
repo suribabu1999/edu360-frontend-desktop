@@ -6,7 +6,7 @@ import SocioCard from "../SocioCard/SocioCard";
 const CARDS = [
   {
     id: "card-1",
-    component: EduProCard,
+    component: MyFutureCard,
     baseTranslate: "translate-x-0",
     zIndex: "z-30",
   },
@@ -18,7 +18,7 @@ const CARDS = [
   },
   {
     id: "card-3",
-    component: MyFutureCard,
+    component: EduProCard,
     baseTranslate: "-translate-x-20",
     zIndex: "z-10",
   },
