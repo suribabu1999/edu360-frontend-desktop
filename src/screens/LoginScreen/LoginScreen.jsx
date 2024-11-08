@@ -3,14 +3,17 @@ import AuthLayout from "../../layout/AuthLayout";
 import Login from "../../components/Login/Login";
 import OTP from "../../components/OTP/OTP";
 import SignUp from "../../components/SignUp/SignUp";
+import "./loginscreen.css"
 
 const LoginScreen = () => {
   return (
-    <AuthLayout>
-      {/* <Login/> */}
+    <div className="h-screen w-screen overflow-y-scroll scrollbar-hide">
+      <AuthLayout>
+      <Login/>
       {/* <OTP /> */}
-      <SignUp/>
+      {/* <SignUp/> */}
     </AuthLayout>
+    </div>
   );
 };
 

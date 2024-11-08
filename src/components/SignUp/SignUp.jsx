@@ -86,10 +86,11 @@ const SignUp = () => {
   };
 
   return (
-    <div className="border-[1px] shadow-login border-black rounded-[7px] h-[600px] w-[1003px] bg-white">
+    <div className="border-[1px] shadow-login border-black rounded-[7px] h-[600px] w-[1003px] bg-white mt-2">
       <div className="w-full h-[10px] bg-gray-200 flex rounded-[7px] -z-10">
         <div
           className="bg-[#50A8D5] rounded-tl-[5.1px]"
+
           style={{ width: `${progress}%` }}
         ></div>
       </div>
@@ -99,7 +100,7 @@ const SignUp = () => {
       </div>
       <div className="main-content flex pl-10 pr-10 pb-10 space-x-5">
         <div className="id-card h-[460px] rounded-lg bg-gradient-to-b from-[#4EA3C908] to-[#3E586412] shadow-lg">
-          <div className="camera-icon h-[120px] w-[300px] border border-[#50A9D499] flex justify-center items-center rounded-lg bg-white">
+          <div className="camera-icon h-[130px] w-[300px] border border-[#50A9D499] flex justify-center items-center rounded-lg bg-white">
             {imagePreview ? (
               <img
                 src={imagePreview}
@@ -138,7 +139,7 @@ const SignUp = () => {
             <p className="text-[#00111A] font-medium mt-5">
               Contact Number: {formData.contactNumber}
             </p>
-            <p className="text-[#00111A] font-medium mt-5">
+            <p className="text-[#00111A] font-medium mt-5 ">
               Address: {formData.address}
             </p>
           </div>
@@ -235,7 +236,7 @@ const SignUp = () => {
                         name="collegeName"
                         value={formData.collegeName}
                         onChange={handleInputChange}
-                        className="w-full p-2 border border-gray-200 rounded appearance-none mt-1"
+                        className="w-full p-2 border border-gray-200 text-gray-500 rounded appearance-none mt-1 text-xs h-10"
                       >
                         <option value="college1">College 1</option>
                         <option value="college2">College 2</option>
@@ -266,7 +267,7 @@ const SignUp = () => {
                         name="universityName"
                         value={formData.universityName}
                         onChange={handleInputChange}
-                        className="w-full p-2 border border-gray-200 rounded appearance-none mt-1"
+                        className="w-full p-2 border border-gray-200 text-gray-500 rounded appearance-none mt-1 text-xs h-10"
                       >
                         <option value="">Select University</option>
                         <option value="university1">University 1</option>
@@ -293,14 +294,14 @@ const SignUp = () => {
                         name="course"
                         value={formData.course}
                         onChange={handleInputChange}
-                        className="w-full p-2 border border-gray-200 rounded appearance-none mt-1"
+                        className="w-full p-2 border border-gray-200 text-gray-500 rounded appearance-none mt-1 text-xs h-10"
                       >
                         <option value="">Select Course</option>
                         <option value="course1">Course 1</option>
                         <option value="course2">Course 2</option>
                       </select>
                       <ChevronDown
-                        className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400"
+                        className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-100"
                         size={20}
                       />
                     </FormField>
@@ -324,7 +325,7 @@ const SignUp = () => {
                         name="interests"
                         value={formData.interests}
                         onChange={handleInputChange}
-                        className="w-full p-2 border border-gray-200 rounded appearance-none mt-1"
+                        className="w-full p-2 border border-gray-200 rounded appearance-none mt-1 text-gray-500 text-xs h-10"
                       >
                         <option value="">Select Interests</option>
                         <option value="interest1">Interest 1</option>
