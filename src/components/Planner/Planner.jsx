@@ -1,31 +1,47 @@
-import React from 'react';
+
+import React from "react";
+import { MoreHorizontal } from "lucide-react";
+import EduProChildrenCard from "../EduProChildrenCard/EduProChildrenCard";
 
 const Planner = () => {
+  const events = [
+    {
+      time: "10:00 AM",
+      title: "Apply For Scholarship",
+    },
+    {
+      time: "12:00 PM",
+      title: "Time For Assessment",
+      description: "Assessment",
+    },
+  ];
+
   return (
-    <div className="bg-white p-3 rounded-lg shadow-md">
-      <div className="flex justify-between items-center mb-2">
-        <h2 className="text-sm font-bold text-gray-800">Your Planner</h2>
-        <a href="#" className="text-primary text-xs font-semibold">View All</a>
-      </div>
-      <div className="flex justify-between items-center mb-2">
-        <h3 className="text-xs text-gray-500 font-semibold">Sep 29, 2024</h3>
-        <span className="h-4 w-4 text-gray-400">•••</span> {/* Replaced with simple text */}
-      </div>
-      <div className="bg-white rounded-lg shadow-sm p-2">
-        <div className="flex items-start mb-2">
-          <div className="text-xs font-bold text-gray-800 mr-2">10:00 AM</div>
-          <div className="text-xs text-gray-600">
-            Apply For<br />Scholarship
-          </div>
+    <EduProChildrenCard title={"Planner"}>
+      <div className=" pt-2 pb-2 pr-10 pl-10">
+        <div className="flex justify-between items-center mb-4">
+          <span className="text-gray-600 text-lg">Sep 29, 2024</span>
+          <MoreHorizontal className="text-gray-400 w-5 h-5" />
         </div>
-        <div className="flex items-start">
-          <div className="text-xs font-bold text-gray-800 mr-2">12:00 PM</div>
-          <div className="text-xs text-gray-600">
-            Time For<br />Assessment
-          </div>
+
+        <div className="bg-white rounded-lg shadow-sm p-5">
+          {events.map((event, index) => (
+            <div key={index} className="flex items-start mb-4 last:mb-0">
+              <div className="w-24 text-sm font-bold">
+                {event.time}
+              </div>
+              <div className="flex-1 flex items-start">
+                <div className="w-1 rounded-lg h-16 bg-orange-300 mr-2"></div>
+                <div>
+                  <div className="text-xl text-[#2A303E] text-wrap font-[400]">{event.title}</div>
+                
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
+    </EduProChildrenCard>
   );
 };
 

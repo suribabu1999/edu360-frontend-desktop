@@ -27,6 +27,9 @@ const CARDS = [
 export default function CardStack() {
   const [activeCard, setActiveCard] = useState(CARDS[0].id);
 
+  const [futureCardButton,setFutureCardButton]= useState(true)
+  const [showContent,setShowContent] = useState(true)
+
   const shadowStates = useMemo(
     () =>
       CARDS.reduce((acc, { id }) => {
@@ -45,13 +48,13 @@ export default function CardStack() {
 
       if (activeCard === "card-3") {
         if (cardId === "card-1")
-          return `${baseClass} !w-[30px] translate-x-[850px]`;
+          return `${baseClass} !w-[70px] translate-x-[850px]`;
         if (cardId === "card-2")
-          return `${baseClass} !w-[40px] translate-x-[820px] overflow-hidden`;
+          return `${baseClass} !w-[70px] translate-x-[820px] overflow-hidden`;
       }
 
       if (activeCard === "card-2" && cardId === "card-1") {
-        return `${baseClass} !w-[30px] translate-x-[880px]`;
+        return `${baseClass} !w-[70px] translate-x-[880px]`;
       }
 
       return `${baseClass} ${baseTranslate}`;
@@ -69,7 +72,7 @@ export default function CardStack() {
             className={`${getCardClass(id)} ${zIndex}`}
             onClick={() => setActiveCard(id)}
           >
-            <Card shadow={shadowStates[id]} />
+            <Card shadow={shadowStates[id]} setFutureCardButton={setFutureCardButton} futureCardButton={futureCardButton} showContent={showContent} setShowContent={setShowContent} />
           </div>
         ))}
       </div>

@@ -8,7 +8,8 @@ export default {
     extend: {
       backgroundImage: {
         'auth-bg': "url('/src/assets/images/background.png')",
-        'create':'linear-gradient(160.37deg, rgba(78, 163, 201, 0.032) -1.8%, rgba(62, 88, 100, 0.0688) 105.76%)'
+        'create':'linear-gradient(160.37deg, rgba(78, 163, 201, 0.032) -1.8%, rgba(62, 88, 100, 0.0688) 105.76%)',
+        'eduprocard':'linear-gradient(358.28deg, #D6EAF4 -37.26%, rgba(235, 248, 255, 0.83) 112.51%)'
       },
       boxShadow: {
         'login':'0px 0px 15px 8px #00000026',
