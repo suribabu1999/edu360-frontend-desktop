@@ -9,8 +9,8 @@ const LoginScreen = () => {
   return (
     <div className="h-screen w-screen overflow-y-scroll scrollbar-hide">
       <AuthLayout>
-      <Login/>
-      {/* <OTP /> */}
+      {/* <Login/> */}
+      <OTP />
       {/* <SignUp/> */}
     </AuthLayout>
     </div>
