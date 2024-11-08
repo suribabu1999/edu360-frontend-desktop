@@ -1,0 +1,44 @@
+{
+  "CognitiveSection": [
+    {
+      "question": "What is 2 + 2?",
+      "options": ["3", "4", "5", "6"],
+      "type": "radio",
+      "timer": "30000"
+    },
+    {
+      "question": "Which shape has 4 equal sides?",
+      "options": ["Circle", "Triangle", "Square", "Rectangle"],
+      "type": "radio",
+      "timer": "30000"
+    }
+  ],
+  "CoreSection": [
+    {
+      "question": "Which of these is a primary color?",
+      "options": ["Red", "Green", "Purple", "Black"],
+      "type": "radio",
+      "timer": "30000"
+    },
+    {
+      "question": "What is the capital of France?",
+      "options": ["Paris", "London", "Rome", "Berlin"],
+      "type": "radio",
+      "timer": "30000"
+    }
+  ],
+  "EmotionalSection": [
+    {
+      "question": "How do you feel after a productive day?",
+      "options": ["Happy", "Anxious", "Neutral", "Sad"],
+      "type": "radio",
+      "timer": "30000"
+    },
+    {
+      "question": "What is your approach to solving conflicts?",
+      "options": ["Avoid", "Confront", "Negotiate", "Ignore"],
+      "type": "checkbox",
+      "timer": "30000"
+    }
+  ]
+}
